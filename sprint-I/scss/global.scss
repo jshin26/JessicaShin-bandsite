@@ -181,6 +181,7 @@ body {
             margin-top: 55px;
         }
         @include desktop {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
             margin: 3rem 0;
         }
     }
@@ -406,7 +407,7 @@ body {
             }
             @include desktop {
                 margin-top: 1.5rem;
-            }
+            }            
         }        
     }
     &__copyright {
