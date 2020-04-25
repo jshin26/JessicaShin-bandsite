@@ -1,0 +1,197 @@
+// IMPORTS
+@import './partials/fonts';
+@import './partials/mixins';
+@import './partials/variables';
+
+
+// COMMON
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'AvenirNextLTPro', sans-serif;
+    font-weight: 400;
+}
+
+// Navigation Bar
+
+.menu {
+    width: 100%;
+    background-color: $black;
+    &--inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__logo {
+        margin-top: 16px;
+    }
+    &__nav {
+        width: 100%;
+    }
+    &__list {
+        width: 100%;
+        display: flex;
+        padding: 0;
+        list-style: none;
+        margin-bottom: 0;
+        li {
+            width: 50%;
+            height: 100%;
+            text-align: center;
+        }
+        .current-page {
+            border-bottom: 5px solid $alabaster;
+            padding-bottom: 0.688rem;
+            a:link,
+            a:visited {
+                color: $alabaster;
+            }
+        }
+        a {
+            text-decoration: none;
+            &:link,
+            &visited {
+                color: $silver;
+            }
+        }
+    }
+}
+
+// HERO
+
+.hero {
+    width: 100%;
+    height: 30vh;
+    background-image: url('../assets/Images/noise.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+    &--overlay {
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+    }
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        h1 {
+            @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+            width: 73%;
+            color: $alabaster;
+        }
+    }
+}
+
+// ABOUT the Musicians
+
+.about {
+    width: 100%;
+    margin-bottom:2.5rem;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__header {
+        @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        margin: 2rem 0 1.5rem;
+    }
+    &__image {
+        width: 100%;
+    }
+    &__quote {
+        @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+    }
+    &__quote-name {
+        margin: 2rem 0 2.5rem;
+        @include font (0.875rem, 1.125rem, 'AvenirNextLTPro', 600);
+    }
+    &__info-title {
+        margin: 0;
+        @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+    }
+    &__info {
+        margin-top: 1.5rem;
+        @include font (0.813rem, 1.125rem, 'AvenirNextLTPro', 300);
+        &--break {
+            display: block;
+            margin: 1.5rem 0;
+        }
+    }
+}
+
+// Gallery
+
+.gallery {
+    background-color: $alabaster;
+    padding: 2rem 0;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__title {
+        @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        margin: 0 0 1.5rem;
+    }
+    &__image {
+        display: flex;
+        width: 100%;
+        margin: 0 0 1rem;
+    }
+}
+
+// FOOTER
+
+.footer {
+    background-color: $black;
+    color: $alabaster;
+    padding-bottom: 2.5rem;
+    &--inner {
+        width: 92%;
+        margin: 0 auto;
+    }
+    &__top-container {
+        padding-top: 28px;
+    }
+    &__title {
+        @include font (2.25rem, 2rem, 'AvenirNextLTPro', 700);
+        padding: 24px 0;        
+        margin: 0;
+    }
+    &__icons {
+        width: 50%;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }    
+}
+
+.contact {
+    &__team {
+        margin: 1.5rem 0;
+    }
+    &__name {
+        @include font (1rem, 1.375rem, 'AvenirNextLTPro', 600);
+        margin: 1.125rem 0;
+    }
+    &__info {
+        @include font (12px, 1.375rem, 'AvenirNextLTPro', 300);
+        margin: 1.125 0;
+        color: $alabaster;
+        text-decoration: none;
+    }
+    &__copyright {
+        @include font (0.813rem, 1.375rem, 'AvenirNextLTPro', 300);
+        margin: 0;
+    }
+}

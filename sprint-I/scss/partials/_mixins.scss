@@ -1,0 +1,20 @@
+
+
+// MIXINS
+
+@mixin font ($size, $height, $family, $weight){
+    font-size: $size;
+    line-height: $height;
+    font-family: $family;
+    font-weight: $weight;
+}
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
