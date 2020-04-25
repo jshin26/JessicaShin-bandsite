@@ -23,12 +23,24 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        @include tablet {
+            height: 5rem;
+            flex-direction: row;
+        }
     }
     &__logo {
         margin-top: 16px;
+        @include tablet {
+            margin: 0 1.5rem;
+            display: flex;
+            align-items: center;
+        }
     }
     &__nav {
         width: 100%;
+        @include tablet {
+            width: 40%;
+        }
     }
     &__list {
         width: 100%;
@@ -36,14 +48,26 @@ body {
         padding: 0;
         list-style: none;
         margin-bottom: 0;
+        @include tablet {
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 0;
+        }
         li {
             width: 50%;
             height: 100%;
             text-align: center;
+            @include tablet {
+                width: auto;
+            }
         }
         .current-page {
             border-bottom: 5px solid $alabaster;
             padding-bottom: 0.688rem;
+            @include tablet {
+                border-bottom: 3px solid $alabaster;
+                padding: 1.875rem 0 1.5rem;
+            }
             a:link,
             a:visited {
                 color: $alabaster;
@@ -70,6 +94,9 @@ body {
     background-repeat: no-repeat;
     display: flex;
     position: relative;
+    @include tablet {
+        height: 45vh;
+    }
     &--overlay {
         width: 100%;
         height: 100%;
@@ -84,10 +111,16 @@ body {
         display: flex;
         align-items: center;
         z-index: 1;
+        @include tablet {
+            width: 94%;
+        }
         h1 {
             @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
             width: 73%;
             color: $alabaster;
+            @include tablet {
+                @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
+            }
         }
     }
 }
@@ -100,31 +133,60 @@ body {
     &--inner {
         width: 90%;
         margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
     }
     &__header {
         @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
         margin: 2rem 0 1.5rem;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin-top: 55px;
+        }
     }
     &__image {
         width: 100%;
+        @include tablet {
+            height: 42vh;
+            object-fit: cover;
+        }
     }
     &__quote {
         @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1.5rem, 2.25rem, 'AvenirNextLTPro', 700);
+        }
     }
     &__quote-name {
         margin: 2rem 0 2.5rem;
         @include font (0.875rem, 1.125rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1rem, 1.5rem, 'AvenirNextLTPro', 600);
+        }
     }
     &__info-title {
         margin: 0;
         @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        }
     }
     &__info {
         margin-top: 1.5rem;
         @include font (0.813rem, 1.125rem, 'AvenirNextLTPro', 300);
+        @include tablet {
+            @include font (0.9rem, 1.5rem, 'AvenirNextLTPro', 300);
+            column-count: 2;
+            column-width: 50%;
+            column-gap: 1.5rem;
+        }
         &--break {
             display: block;
             margin: 1.5rem 0;
+            @include tablet {
+                margin: 0;
+            }
         }
     }
 }
@@ -137,15 +199,38 @@ body {
     &--inner {
         width: 90%;
         margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
     }
     &__title {
         @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
         margin: 0 0 1.5rem;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin: 0.813rem, 0 2.813rem,
+        }
+    }
+    &__image-group {
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
     &__image {
         display: flex;
         width: 100%;
         margin: 0 0 1rem;
+        @include tablet {
+            width: 31%;
+            margin: 0 1.5rem 1.5rem 0;
+        }
+        &:nth-child(3n) {
+            @include tablet {
+                margin-right: 0;
+            }
+        }
     }
 }
 
@@ -158,9 +243,19 @@ body {
     &--inner {
         width: 92%;
         margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
     }
     &__top-container {
         padding-top: 28px;
+        @include tablet {
+            height: 10vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.75rem 0 0;
+        }
     }
     &__title {
         @include font (2.25rem, 2rem, 'AvenirNextLTPro', 700);
@@ -173,25 +268,52 @@ body {
         display: flex;
         justify-content: space-between;
         padding: 0;
+        @include tablet {
+            width: 20%;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-right: 7.5rem;
+        }
+    }
+    &__logo {
+        display: none;
+        @include tablet {
+            display: inline;
+        }
     }    
-}
-
-.contact {
-    &__team {
-        margin: 1.5rem 0;
-    }
-    &__name {
-        @include font (1rem, 1.375rem, 'AvenirNextLTPro', 600);
-        margin: 1.125rem 0;
-    }
-    &__info {
-        @include font (12px, 1.375rem, 'AvenirNextLTPro', 300);
-        margin: 1.125 0;
-        color: $alabaster;
-        text-decoration: none;
+    .contact {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__team {
+            margin: 1.5rem 0;
+            @include tablet {
+                width: 31%;
+                margin: 0 0 1.5rem;
+            }
+        }
+        &__name {
+            @include font (1rem, 1.375rem, 'AvenirNextLTPro', 600);
+            margin: 1.125rem 0;
+        }
+        &__info {
+            @include font (12px, 1.375rem, 'AvenirNextLTPro', 300);
+            margin: 1.125 0;
+            color: $alabaster;
+            text-decoration: none;
+            @include tablet {
+                @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 300);
+                margin: 0.938rem 0;
+            }
+        }        
     }
     &__copyright {
         @include font (0.813rem, 1.375rem, 'AvenirNextLTPro', 300);
         margin: 0;
+        @include tablet {
+            display: inline;
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 300)
+        }
     }
 }
