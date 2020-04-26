@@ -3,6 +3,9 @@
 @import './partials/mixins';
 @import './partials/variables';
 
+@import './partials/header';
+@import './partials/footer';
+
 
 // COMMON
 body {
@@ -11,103 +14,6 @@ body {
     padding: 0;
     font-family: 'AvenirNextLTPro', sans-serif;
     font-weight: 400;
-}
-
-// Navigation Bar
-
-.menu {
-    width: 100%;
-    background-color: $black;
-    &--inner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        @include tablet {
-            height: 5rem;
-            flex-direction: row;
-        }
-        @include desktop {
-            width: 87%;
-            margin: 0 auto;
-
-        }
-    }
-    &__logo {
-        margin-top: 16px;
-        @include tablet {
-            margin: 0 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-        @include desktop {
-            justify-content: flex-start;
-            margin-right: 3.5rem;
-        }
-        img {
-            width: 100%;
-        }
-    }
-    &__nav {
-        width: 100%;
-        @include tablet {
-            width: 40%;
-        }
-        @include desktop {
-            width: 18%;
-        }
-    }
-    &__list {
-        width: 100%;
-        display: flex;
-        padding: 0;
-        list-style: none;
-        margin-bottom: 0;
-        @include tablet {
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 0;
-        }
-        @include desktop {
-            font-size: 18px;
-        }
-        li {
-            width: 50%;
-            height: 100%;
-            text-align: center;
-            @include tablet {
-                width: auto;
-            }
-            @include desktop {
-                margin-right: 3.5rem;
-            }
-        }
-        .current-page {
-            border-bottom: 5px solid $alabaster;
-            padding-bottom: 0.688rem;
-            @include tablet {
-                border-bottom: 3px solid $alabaster;
-                padding: 1.875rem 0 1.5rem;
-            }
-            a:link,
-            a:visited {
-                color: $alabaster;
-            }
-        }
-        a {
-            text-decoration: none;
-            &:link,
-            &:visited {
-                color: $silver;
-            }
-            @include desktop {
-                &:hover {
-                    color: $alabaster;
-                    border-bottom: 3px solid $alabaster;
-                    padding: 1.875rem 0 1.625rem;
-                }
-            }
-        }
-    }
 }
 
 // HERO
@@ -122,7 +28,7 @@ body {
     display: flex;
     position: relative;
     @include tablet {
-        height: 45vh;
+        height: 60vh;
     }
     @include desktop {
         height: 70vh;
@@ -310,112 +216,6 @@ body {
             @include tablet {
                 margin-right: 0;
             }
-        }
-    }
-}
-
-// FOOTER
-
-.footer {
-    background-color: $black;
-    color: $alabaster;
-    padding-bottom: 2.5rem;
-    &--inner {
-        width: 92%;
-        margin: 0 auto;
-        @include tablet {
-            width: 94%;
-        }
-        @include desktop {
-            width: 85%;
-        }
-    }
-    &__top-container {
-        padding-top: 28px;
-        @include tablet {
-            height: 10vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.75rem 0 0;
-        }
-        @include desktop {
-            padding-top: 3rem;
-        }
-    }
-    &__title {
-        @include font (2.25rem, 2rem, 'AvenirNextLTPro', 700);
-        padding: 24px 0;        
-        margin: 0;
-        @include desktop {
-            padding: 0;
-        }
-    }
-    &__icons {
-        width: 50%;
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        padding: 0;
-        @include tablet {
-            width: 20%;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding-right: 7.5rem;
-        }
-        @include desktop {
-            width: 15%;
-            padding-right: 25rem;
-        }
-    }
-    &__logo {
-        display: none;
-        @include tablet {
-            display: inline;
-        }
-    }    
-    .contact {
-        @include tablet {
-            display: flex;
-            justify-content: space-between;
-        }
-        @include desktop {
-            width: 80%;
-        }
-        &__team {
-            margin: 1.5rem 0;
-            @include tablet {
-                width: 31%;
-                margin: 0 0 1.5rem;
-            }
-            @include desktop {
-                margin-bottom: 2.5rem;
-            }
-        }
-        &__name {
-            @include font (1rem, 1.375rem, 'AvenirNextLTPro', 600);
-            margin: 1.125rem 0;
-        }
-        &__info {
-            @include font (12px, 1.375rem, 'AvenirNextLTPro', 300);
-            margin: 1.125 0;
-            color: $alabaster;
-            text-decoration: none;
-            @include tablet {
-                @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 300);
-                margin: 0.938rem 0;
-            }
-            @include desktop {
-                margin-top: 1.5rem;
-            }            
-        }        
-    }
-    &__copyright {
-        @include font (0.813rem, 1.375rem, 'AvenirNextLTPro', 300);
-        margin: 0;
-        @include tablet {
-            display: inline;
-            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 300)
         }
     }
 }
