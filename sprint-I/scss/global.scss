@@ -1,3 +1,11 @@
+/* 
+I was playing around with git/github during weekend, and by mistake my repository was deleted.
+I had 10 commits saved from Wednesday to Saturday. I have a screenshot, so let me know if you need.
+I tried my best to go back to first-commit-stage, but you will see only 6 commits saved on the same day :( 
+Since there is a criteria of 'regular git commits' in rubric,
+I wanted to leave a comment on top. Thank you!
+*/
+
 // IMPORTS
 @import './partials/fonts';
 @import './partials/mixins';
@@ -59,6 +67,9 @@ body {
             color: $alabaster;
             @include tablet {
                 @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
+            }
+            @include desktop {
+                width: 50%;
             }
         }
     }
