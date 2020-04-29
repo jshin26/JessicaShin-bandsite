@@ -1,0 +1,232 @@
+/* 
+I was playing around with git/github during weekend, and by mistake my repository was deleted.
+I had 10 commits saved from Wednesday to Saturday. I have a screenshot, so let me know if you need.
+I tried my best to go back to first-commit-stage, but you will see only 6 commits saved on the same day :( 
+Since there is a criteria of 'regular git commits' in rubric,
+I wanted to leave a comment on top. Thank you!
+*/
+
+// IMPORTS
+@import './partials/fonts';
+@import './partials/mixins';
+@import './partials/variables';
+
+@import './partials/header';
+@import './partials/footer';
+
+
+// COMMON
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    font-family: 'AvenirNextLTPro', sans-serif;
+    font-weight: 400;
+}
+
+// HERO
+
+.hero {
+    width: 100%;
+    height: 30vh;
+    background-image: url('../assets/Images/noise.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+    @include tablet {
+        height: 60vh;
+    }
+    @include desktop {
+        height: 70vh;
+    }
+    &--overlay {
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+    }
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+        h1 {
+            @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+            width: 73%;
+            color: $alabaster;
+            @include tablet {
+                @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
+            }
+            @include desktop {
+                width: 50%;
+            }
+        }
+    }
+}
+
+// ABOUT the Musicians
+
+.about {
+    width: 100%;
+    margin-bottom:2.5rem;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+    }
+    &__header {
+        @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        margin: 2rem 0 1.5rem;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin-top: 55px;
+        }
+        @include desktop {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin: 3rem 0;
+        }
+    }
+    &__frame {
+        @include desktop {
+            width: 88%;
+            margin: 0 auto;
+        }
+    }
+    &__image {
+        width: 100%;
+        @include tablet {
+            height: 42vh;
+            object-fit: cover;
+        }
+        @include desktop {
+            height: 51vh;
+        }
+    }
+    &__quote {
+        @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1.5rem, 2.25rem, 'AvenirNextLTPro', 700);
+        }
+        @include desktop {
+            width: 90%;
+            margin: 3rem 0 2.5rem;
+        }
+    }
+    &__quote-name {
+        margin: 2rem 0 2.5rem;
+        @include font (0.875rem, 1.125rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1rem, 1.5rem, 'AvenirNextLTPro', 600);
+        }
+        @include desktop {
+            margin-bottom: 2rem;
+        }
+    }
+    &__info-title {
+        margin: 0;
+        @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        }
+        @include desktop {
+            margin-bottom: 2rem;
+        }
+    }
+    &__info {
+        margin-top: 1.5rem;
+        @include font (0.813rem, 1.125rem, 'AvenirNextLTPro', 300);
+        @include tablet {
+            @include font (0.9rem, 1.5rem, 'AvenirNextLTPro', 300);
+            column-count: 2;
+            column-width: 50%;
+            column-gap: 1.5rem;
+        }
+        @include desktop {
+            column-gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        &--break {
+            display: block;
+            margin: 1.5rem 0;
+            @include tablet {
+                margin: 0;
+            }
+        }
+    }
+}
+
+// Gallery
+
+.gallery {
+    background-color: $alabaster;
+    padding: 2rem 0;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+    }
+    &__title {
+        @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        margin: 0 0 1.5rem;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin: 0.813rem, 0 2.813rem,
+        }
+        @include desktop {
+            margin-bottom: 4rem;
+        }
+    }
+    &__image-group {
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        @include desktop {
+            padding-bottom: 1.5rem;
+        }
+    }
+    &__image {
+        display: flex;
+        width: 100%;
+        margin: 0 0 1rem;
+        @include tablet {
+            width: 31%;
+            margin: 0 1.5rem 1.5rem 0;
+        }
+        @include desktop {
+            width: 32%;
+            margin-right: 0;
+            filter: grayscale(100%);
+            &:hover {
+                filter: none;
+            }
+        }
+        &:nth-child(3n) {
+            @include tablet {
+                margin-right: 0;
+            }
+        }
+    }
+}

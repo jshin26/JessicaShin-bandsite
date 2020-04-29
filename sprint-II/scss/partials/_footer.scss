@@ -1,0 +1,108 @@
+
+
+// FOOTER
+
+.footer {
+    background-color: $black;
+    color: $alabaster;
+    padding-bottom: 2.5rem;
+    &--inner {
+        width: 92%;
+        margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+    }
+    &__top-container {
+        padding-top: 28px;
+        @include tablet {
+            height: 10vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.75rem 0 0;
+        }
+        @include desktop {
+            padding-top: 3rem;
+        }
+    }
+    &__title {
+        @include font (2.25rem, 2rem, 'AvenirNextLTPro', 700);
+        padding: 24px 0;        
+        margin: 0;
+        @include desktop {
+            padding: 0;
+        }
+    }
+    &__icons {
+        width: 50%;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        @include tablet {
+            width: 20%;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-right: 7.5rem;
+        }
+        @include desktop {
+            align-items: center;
+            width: 15%;
+            padding-right: 25rem;
+        }
+    }
+    &__logo {
+        display: none;
+        @include tablet {
+            display: inline;
+        }
+    }    
+    .contact {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+        @include desktop {
+            width: 80%;
+        }
+        &__team {
+            margin: 1.5rem 0;
+            @include tablet {
+                width: 31%;
+                margin: 0 0 1.5rem;
+            }
+            @include desktop {
+                margin-bottom: 2.5rem;
+            }
+        }
+        &__name {
+            @include font (1rem, 1.375rem, 'AvenirNextLTPro', 600);
+            margin: 1.125rem 0;
+        }
+        &__info {
+            @include font (12px, 1.375rem, 'AvenirNextLTPro', 300);
+            margin: 1.125 0;
+            color: $alabaster;
+            text-decoration: none;
+            @include tablet {
+                @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 300);
+                margin: 0.938rem 0;
+            }
+            @include desktop {
+                margin-top: 1.5rem;
+            }            
+        }        
+    }
+    &__copyright {
+        @include font (0.813rem, 1.375rem, 'AvenirNextLTPro', 300);
+        margin: 0;
+        @include tablet {
+            display: inline;
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 300)
+        }
+    }
+}
