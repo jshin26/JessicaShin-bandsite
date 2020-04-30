@@ -389,9 +389,21 @@ body {
   font-weight: 400;
 }
 
+.btn {
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "AvenirNextLTPro";
+  font-weight: 600;
+  color: #fff;
+  background-color: #323232;
+  padding: 16px 0;
+  border-radius: 5px;
+  border-style: none;
+}
+
 .hero {
   width: 100%;
-  height: 75vh;
+  height: 70vh;
   background-image: url("../assets/Images/mimi.jpg");
   background-position: center;
   background-size: cover;
@@ -414,7 +426,8 @@ body {
   }
 }
 
-.hero--overlay {
+.hero::after {
+  content: "";
   width: 100%;
   height: 100%;
   background-color: #323232;
@@ -432,7 +445,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -447,25 +459,32 @@ body {
   }
 }
 
-.hero--inner p {
+.hero__container {
+  margin: 0;
+  z-index: 1;
+}
+
+.hero__text {
   font-size: 1rem;
   line-height: 22px;
   font-family: "AvenirNextLTPro";
   font-weight: 600;
   color: #fafafa;
+  padding-top: 64px;
+  margin-top: 0;
 }
 
-.hero--inner h1 {
+.hero__title {
   font-size: 36px;
   line-height: 55px;
   font-family: "AvenirNextLTPro";
   font-weight: 700;
   color: #fafafa;
-  margin: 0;
+  margin: 0 0 64px;
 }
 
 @media (min-width: 768px) {
-  .hero--inner h1 {
+  .hero__title {
     font-size: 3.75rem;
     line-height: 5rem;
     font-family: "AvenirNextLTPro";
@@ -474,8 +493,18 @@ body {
 }
 
 @media (min-width: 1200px) {
-  .hero--inner h1 {
+  .hero__title {
     width: 50%;
   }
+}
+
+.hero__audio {
+  width: 100%;
+  height: 70px;
+}
+
+.show--inner {
+  width: 90%;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=show.css.map */

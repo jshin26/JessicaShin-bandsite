@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BANDSITE</title>
 
-    <link rel="stylesheet" href="./scss/global.css">
+    <link rel="stylesheet" href="./scss/main.css">
 
 </head>
 <body>
@@ -78,6 +78,34 @@
             </div>
         </section>
 
+        <!-- Join the Conversation -->
+        <section class="join">
+            <div class="join--inner">
+                <h2>Join the Conversation</h2>
+                
+                <div class="join-input">
+
+                    <div class="join-input--left">
+                        <img src="./assets/Images/Mohan-muruge.jpg" alt="userimage">
+                    </div>
+
+                    <form class="join-input--right" action="#">
+                        <label class="join-input__text" for="name">NAME</label>
+                        <input class="join-input__name" type="text" name="name" placeholder ="Mohan Muruge">
+                        <label class="join-input__text" for="comment">COMMENT</label>
+                        <textarea class="join-input__comment join-input__comment--bgrgray" name="comment" cols="10" rows="4" placeholder="Add a new comment"></textarea>
+                        <button class="join-input__submit btn" type="submit">COMMENT</button>
+                    </form>
+
+                </div>
+
+                <div class="join-container">
+
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -117,5 +145,6 @@
         </div>
     </footer>
 
+<script src="./script/index.js"></script>
 </body>
 </html>

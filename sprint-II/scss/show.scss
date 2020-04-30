@@ -1,10 +1,13 @@
+
 // IMPORTS
+
 @import './partials/fonts';
 @import './partials/mixins';
 @import './partials/variables';
 
 @import './partials/header';
 @import './partials/footer';
+
 
 // COMMON
 body {
@@ -14,58 +17,86 @@ body {
     font-family: 'AvenirNextLTPro', sans-serif;
     font-weight: 400;
 }
+.btn {
+    @include font (13px, 20px, 'AvenirNextLTPro', 600); 
+    color: $white;
+    background-color: $black;
+    padding: 16px 0;
+    border-radius: 5px;
+    border-style: none;
+}
 
 // HERO
 
 .hero {
     width: 100%;
-    height: 75vh;
+    height: 70vh;
     background-image: url('../assets/Images/mimi.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    position: relative;
+    position: relative; 
     @include tablet {
         height: 60vh;
     }
     @include desktop {
         height: 70vh;
     }
-    &--overlay {
+    &::after {
+        content: "";
         width: 100%;
         height: 100%;
         background-color: $black;
         opacity: .5;
         position: absolute;
         top: 0;
-    }
+        
+    }   
     &--inner {
         width: 90%;
         margin: 0 auto;
         display: flex;
-        align-items: center;
-        z-index: 1;
+        align-items: center;     
         @include tablet {
             width: 94%;
         }
         @include desktop {
             width: 85%;
+        }               
+    }
+    &__container{
+        margin: 0;
+        z-index: 1;  
+    }
+    &__text {
+        @include font (1rem, 22px, 'AvenirNextLTPro', 600);
+        color: $alabaster;
+        padding-top: 64px;
+        margin-top: 0;
+    }
+    &__title {
+        @include font (36px, 55px, 'AvenirNextLTPro', 700);
+        color: $alabaster;
+        margin: 0 0 64px;
+        @include tablet {
+            @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
         }
-        p {
-            @include font (1rem, 22px, 'AvenirNextLTPro', 600);
-            color: $alabaster;
+        @include desktop {
+            width: 50%;
         }
-        h1 {
-            @include font (36px, 55px, 'AvenirNextLTPro', 700);
-            color: $alabaster;
-            margin: 0;
-            @include tablet {
-                @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
-            }
-            @include desktop {
-                width: 50%;
-            }
-        }
+    }
+    &__audio{
+        width: 100%;
+        height: 70px;
+    }
+}
+
+// SHOWS
+
+.show {
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
     }
 }
