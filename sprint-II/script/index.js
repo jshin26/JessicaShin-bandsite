@@ -1,9 +1,9 @@
 
-// Join the Conversation
+// querySelectors
 
 let nameInput = document.querySelector('.join-input__name');
 let commentInput = document.querySelector('.join-input__comment');
-let btnSubmit = document.querySelector('.join-input__submit');
+let formSubmit = document.querySelector('.join-input--right');
 
 let joinContainer = document.querySelector('.join-container--inner');
 
@@ -20,54 +20,56 @@ function generateTime() {
 };
 
 
-// eventlistener
-btnSubmit.addEventListener('click', event => {
+function btnHandler (event) {
     event.preventDefault();
-    
+    if (nameInput.value === undefined || nameInput.value === ''|| nameInput.value === null) {
+        alert ('Please type your name!');        
+    } else {
+        // Create Box
+        let commentBox = document.createElement('div'); 
+        commentBox.classList.add('join-container__box');
+        
+        let commentBoxLeft = document.createElement('div');
+        commentBoxLeft.classList.add('join-container--left');
+        commentBox.appendChild(commentBoxLeft);
 
-    // Create Box
-    let commentBox = document.createElement('div'); 
-    commentBox.classList.add('join-container__box');
-    
-    let commentBoxLeft = document.createElement('div');
-    commentBoxLeft.classList.add('join-container--left');
-    commentBox.appendChild(commentBoxLeft);
-
-    let commentBoxRight = document.createElement('div');
-    commentBoxRight.classList.add('join-container--right');
-    commentBox.appendChild(commentBoxRight);
-
-
-    // Name
-    let newName = document.createElement('p');
-    newName.classList.add('join-container__name');
-
-    commentBoxRight.appendChild(newName);
-    newName.innerText = nameInput.value;
+        let commentBoxRight = document.createElement('div');
+        commentBoxRight.classList.add('join-container--right');
+        commentBox.appendChild(commentBoxRight);
 
 
-    // Time
-    let showTime = document.createElement('p');
-    showTime.classList.add('join-container__time');
-    commentBoxRight.appendChild(showTime);
+        // Name
+        let newName = document.createElement('p');
+        newName.classList.add('join-container__name');
 
-    showTime.innerText = generateTime();
+        commentBoxRight.appendChild(newName);
+        newName.innerText = nameInput.value;
 
 
-    // Comment
-    let newComment = document.createElement('div');
-    newComment.classList.add('join-container__comment');
+        // Time
+        let showTime = document.createElement('p');
+        showTime.classList.add('join-container__time');
+        commentBoxRight.appendChild(showTime);
 
-    commentBoxRight.appendChild(newComment);
-    newComment.innerText = commentInput.value;
+        showTime.innerText = generateTime();
 
-    joinContainer.appendChild(commentBox);
 
-});
+        // Comment
+        let newComment = document.createElement('div');
+        newComment.classList.add('join-container__comment');
+
+        commentBoxRight.appendChild(newComment);
+        newComment.innerText = commentInput.value;
+
+        joinContainer.appendChild(commentBox);
+    }
+}
+
+// eventlistener
+formSubmit.addEventListener('submit', btnHandler);
 
 
 // DEFAULT COMMENTS
-
 
 joinContainer.onload = function() {
 
