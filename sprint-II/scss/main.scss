@@ -260,6 +260,8 @@ body {
     }
     &-input {
         display: flex;
+        padding-bottom: 32px;
+        border-bottom: 1px solid $mercury;
         @include tablet {
             width: 85%;
             margin: 0 auto;
@@ -334,7 +336,45 @@ body {
             }
         }          
     }
-    &-container {
-        margin-top: 32px;
-    }  
+    &-container {        
+        &--inner {
+            width: 90%;
+            margin: 0 auto;
+        }
+        &__box {
+            display: flex;
+            border-bottom: 1px solid $mercury;
+        }
+        &--left {
+            background-color: $mercury;
+            width: 22%;
+            height: 45px;
+            border-radius:50%;
+            margin-top: 24px; 
+        }
+        &--right {
+            width: 100%;
+            display: flex;
+            flex-direction: column;            
+            padding-left: 16px;
+            position: relative;
+        }
+        &__name{
+            @include font (14px, 20px, 'AvenirNextLTPro', 600);
+            margin-top: 25px;
+        }
+        &__time {
+            @include font (14px, 20px, 'AvenirNextLTPro', 400);
+            color: $silver;
+            margin: 0;
+            position: absolute;
+            right:0;
+            top: 25px;
+        }
+        &__comment {
+            @include font (14px, 20px, 'AvenirNextLTPro', 400);
+            padding: 16px 0 24px;
+        }
+    }
+      
 }
