@@ -239,7 +239,7 @@ body {
 // Join the Conversation
 
 .join {
-    padding-bottom: 2rem;
+    padding-bottom: 40px;
     &--inner {
         width: 90%;
         margin: 0 auto;
@@ -296,6 +296,7 @@ body {
             width: 100%;
             display: flex;
             flex-direction: column;
+            flex-wrap: nowrap;
             padding-left: 16px;
             @include tablet {
                 padding: 12px;
@@ -312,7 +313,7 @@ body {
             border: 1px solid $mercury;
             border-radius: 3px;
             padding: 12px;
-            margin-bottom: 16px;            
+            margin-bottom: 16px;
             &:focus {
                 border: 2px solid $black;
                 border-radius: 3px;
@@ -373,7 +374,7 @@ body {
         }
         &__comment {
             @include font (14px, 20px, 'AvenirNextLTPro', 400);
-            padding: 16px 0 24px;
+            padding: 0 0 24px;
         }
     }
       

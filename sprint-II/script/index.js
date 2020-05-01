@@ -6,17 +6,17 @@ let commentInput = document.querySelector('.join-input__comment');
 let formSubmit = document.querySelector('.join-input--right');
 
 let innerContainer = document.querySelector('.join-container--inner');
-// let joinContainer = document.querySelector('.join-container');
 
 
 // TimeStamp
-function updateTime() {
+function updateTime(current, previous) {
     const date = new Date();
+
     const year = date.getFullYear();
     const month = date.getMonth();
-    const wDate = date.getDate();
+    const day = date.getDate();
 
-    const time = (month+1) + '/' + wDate + '/' + year;
+    const time = (month+1) + '/' + day + '/' + year;
     return time;
 };
 
@@ -24,9 +24,9 @@ function updateTime() {
 // Array for default comments
 commentSection = [
     {
-        'name': 'Micheal Lyons',
-        'date': '12/18/2018',
-        'comment': 'They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.'
+        'name': 'Theodore Duncan',
+        'date': '11/15/2018',
+        'comment': 'How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He\'s definitely my favorite ever!'
     },
     {
         'name': 'Gary Wong',
@@ -34,18 +34,17 @@ commentSection = [
         'comment': 'Every time I see him shred I feel so motivated to get off my couch and hop on my board. He\'s so talented! I wish I can ride like him one dayt so I can really enjoy myself!'
     },
     {
-        'name': 'Theodore Duncan',
-        'date': '11/15/2018',
-        'comment': 'How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He\'s definitely my favorite ever!'
+        'name': 'Micheal Lyons',
+        'date': '12/18/2018',
+        'comment': 'They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.'
     }
 ];
 
-// const commentReversed = commentSection.reverse();
 
 // btnHandler function
 function btnHandler () {
     
-    for (var i = 0; i < commentSection.length; i++) {
+    for (var i = 0; i < commentSection.length; i++) {        
 
         // Create Elements
         let commentBox = document.createElement('div'); 
@@ -59,59 +58,59 @@ function btnHandler () {
         commentBoxRight.classList.add('join-container--right');
         commentBox.appendChild(commentBoxRight);
 
+
         // Name
         let newName = document.createElement('p');
         newName.classList.add('join-container__name');
         commentBoxRight.appendChild(newName);
         
+
         // Time
         let newTime = document.createElement('p');
         newTime.classList.add('join-container__time');            
         commentBoxRight.appendChild(newTime);          
+
 
         // Comment
         let newComment = document.createElement('div');
         newComment.classList.add('join-container__comment');
         commentBoxRight.appendChild(newComment);
 
-        innerContainer.appendChild(commentBox);
+        innerContainer.prepend(commentBox);
 
         newName.innerText = commentSection[i].name;
         newTime.innerText = commentSection[i].date;
         newComment.innerText = commentSection[i].comment;    
     }
-    
+
     // empty the array
     function empty() {
         commentSection.length = 0;
     }
-    empty();        
+    empty();
 }
 
 
 btnHandler();
-
-
-
 
 // btnHandler eventlistener
 formSubmit.addEventListener('submit', event => {
     event.preventDefault();
 
     // push array
-    commentSection.unshift({
+
+    commentSection.push({
         'name' : nameInput.value,
         'date' : updateTime(),
         'comment' : commentInput.value
-    });
+    })
 
-
-    if (nameInput.value === undefined || nameInput.value === ''|| nameInput.value === null) {
+    if (!nameInput.value) {
         alert ('Please type your name!');        
     } else {
-        
+
         btnHandler ();
     
     }
-
+    formSubmit.reset();
 });

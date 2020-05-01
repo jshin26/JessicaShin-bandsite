@@ -770,7 +770,7 @@ body {
 }
 
 .join {
-  padding-bottom: 2rem;
+  padding-bottom: 40px;
 }
 
 .join--inner {
@@ -878,6 +878,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   padding-left: 16px;
 }
 
@@ -1017,6 +1019,6 @@ body {
   line-height: 20px;
   font-family: "AvenirNextLTPro";
   font-weight: 400;
-  padding: 16px 0 24px;
+  padding: 0 0 24px;
 }
 /*# sourceMappingURL=main.css.map */
