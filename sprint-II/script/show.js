@@ -1,13 +1,17 @@
 
 //querySelectors
-let show = document.querySelector('.show');
 let innerShow = document.querySelector('.show--inner');
+let showContainer = document.querySelector('.show__container')
 
 
-
-//Array
+//Array for Ticket Lists
 
 showSection = [
+    {   
+        'date' : {'date1' : 'DATES', 'date2' : ''},
+        'venue' : {'venue1' : 'VENUE', 'venue2': ''},
+        'location' : {'location1': 'LOCATION', 'location2': ''}
+    },
     {
         'date' : {'date1':'DATE', 'date2':'Mon Dec 17 2018'},
         'venue' : {'venue1':'VENUE', 'venue2':'Ronald Land'},
@@ -49,12 +53,9 @@ showSection = [
 
 for (var i = 0; i < showSection.length; i++) {
 
-    let showTable = document.createElement('div'); //inner <- showTable
+    let showTable = document.createElement('div'); //container <- table
     showTable.classList.add('show__table');
-
-    let showHeader = document.createElement('div'); // table <- header(date/venue/location)
-    showHeader.classList.add('show__header');
-    showTable.appendChild(showHeader);
+    showContainer.appendChild(showTable);
 
     let showBody = document.createElement('div'); // table <- body
     showBody.classList.add('show__body');
@@ -104,7 +105,4 @@ for (var i = 0; i < showSection.length; i++) {
     showLocationH.innerText = showSection[i].location.location1;
     showLocation.innerText = showSection[i].location.location2;
     showTicketBtn.innerText = showSection[i].ticket;
-
-
-    innerShow.appendChild(showTable);
 }

@@ -89,9 +89,9 @@ function btnHandler () {
     }
     empty();
 }
-
-
 btnHandler();
+
+
 
 // btnHandler eventlistener
 formSubmit.addEventListener('submit', event => {

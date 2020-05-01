@@ -21,10 +21,10 @@ body {
     @include font (13px, 20px, 'AvenirNextLTPro', 600); 
     color: $white;
     background-color: $black;
-    padding: 16px 0;
     border-radius: 5px;
     border-style: none;
 }
+
 
 // HERO
 
@@ -50,8 +50,7 @@ body {
         background-color: $black;
         opacity: .5;
         position: absolute;
-        top: 0;
-        
+        top: 0;        
     }   
     &--inner {
         width: 90%;
@@ -92,11 +91,105 @@ body {
     }
 }
 
+
 // SHOWS
 
 .show {
     &--inner {
         width: 90%;
-        margin: 0 auto;
+        margin: 0 auto 40px;
+
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 48px;
+        }    
+        h2 {
+            margin: 32px 0 16px;
+            @include tablet {
+                @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            }
+        }
+    }
+    &__container {
+        @include desktop {
+            width: 75%;
+        }
+    }
+    &__table {
+        &:nth-child(1) .show__body {
+            display: none;
+        }
+        @include tablet {
+            &:nth-child(1) .show__body {
+                display: flex;
+            }
+            &:not(:nth-child(1)) .show__header {
+                display: none;
+            }
+            &:nth-child(1) {
+                .show__btn {
+                    visibility: hidden;
+                    margin: 0;
+                }
+                .show__body {
+                    border-bottom: none;
+                }
+            }
+        }
+        @include desktop {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__body {
+        margin: 16px 0;
+        border-bottom: 1px solid $mercury;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+    }
+    &__header {
+        @include font (13px, 16px, 'AvenirNextLTPro', 600);
+        color: silver;
+        margin: 22px 0 0;        
+    }
+    &__date {
+        @include font (13px, 18px, 'AvenirNextLTPro', 600);
+        color: $black;
+        margin-top: 13px;
+        @include tablet {
+            width: 25%;
+        }
+        @include desktop {
+            width: 35%
+        }
+    }
+    &__venue,
+    &__location {
+        @include font (13px, 18px, 'AvenirNextLTPro', 400);
+        margin-top: 13px;
+        @include tablet {
+            width: 25%;
+        }
+        @include desktop {
+            width: 20%;
+        }
+    }
+    &__btn {
+        width: 100%;
+        padding: 13px 0;
+        margin: 32px 0 16px;
+        @include tablet {
+            width: 22%;
+            margin: 18px 0;
+        }
     }
 }
