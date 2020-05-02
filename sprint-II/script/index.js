@@ -67,12 +67,10 @@ function displayComment () {
         newName.classList.add('join-container__name');
         commentBoxInfo.appendChild(newName);
         
-
         // Time
         let newTime = document.createElement('p');
         newTime.classList.add('join-container__time');            
         commentBoxInfo.appendChild(newTime);          
-
 
         // Comment
         let newComment = document.createElement('div');
@@ -95,7 +93,6 @@ function displayComment () {
 displayComment();
 
 
-
 // displayComment eventlistener
 formSubmit.addEventListener('submit', event => {
     event.preventDefault();
@@ -109,7 +106,9 @@ formSubmit.addEventListener('submit', event => {
     })
 
     if (!nameInput.value) {
-        alert ('Please type your name');        
+
+        alert ('Please type your name');
+               
     } else {
 
         displayComment ();
@@ -117,3 +116,21 @@ formSubmit.addEventListener('submit', event => {
     }
     formSubmit.reset();
 });
+
+
+
+// Change label for NAME INPUT @MEDIA QUERY
+
+const x = window.matchMedia("(min-width: 768px)");
+
+function changeLabel(x) {
+
+    if (x.matches) {
+        document.querySelector('.join-input__text').innerText = 'NAME';
+    } else {
+        document.querySelector('.join-input__text').innerText = 'JOIN THE CONVERSATION';
+    }   
+}
+
+changeLabel(x);
+x.addListener(changeLabel);

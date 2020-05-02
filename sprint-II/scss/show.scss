@@ -21,9 +21,12 @@ body {
     @include font (13px, 20px, 'AvenirNextLTPro', 600); 
     color: $white;
     background-color: $black;
-    border-radius: 5px;
+    border-radius: 4px;
     border-style: none;
     cursor: pointer;
+    &:hover {
+        background-color: #000;
+    }
 }
 
 
@@ -31,28 +34,32 @@ body {
 
 .hero {
     width: 100%;
-    height: 70vh;
+    height: 472px;
     background-image: url('../assets/Images/mimi.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    position: relative; 
+    position: relative;
+    padding-top: 48px;
+    box-sizing: border-box;
     @include tablet {
-        height: 60vh;
+        height: 670px;
+        padding-top: 84px;
     }
     @include desktop {
         height: 70vh;
+        padding: 0;
     }
-    &::after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: $black;
-        opacity: .5;
-        position: absolute;
-        top: 0;        
-    }   
+    // &::after {
+    //     content: "";
+    //     width: 100%;
+    //     height: 100%;
+    //     background-color: $black;
+    //     opacity: .5;
+    //     position: absolute;
+    //     top: 0;        
+    // }   
     &--inner {
         width: 90%;
         margin: 0 auto;
@@ -67,28 +74,53 @@ body {
     }
     &__container{
         margin: 0;
-        z-index: 1;  
+        z-index: 1;
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
     &__text {
+        @include desktop {
+            width: 70%;
+        }
+    }
+    &__description {
         @include font (1rem, 22px, 'AvenirNextLTPro', 600);
         color: $alabaster;
-        padding-top: 64px;
-        margin-top: 0;
+        margin: 0 0 10px;
+        @include tablet {
+            @include font (24px, 32px, 'AvenirNextLTPro', 700);
+            margin-bottom: 20px;
+        }
     }
     &__title {
-        @include font (36px, 55px, 'AvenirNextLTPro', 700);
+        @include font (36px, 50px, 'AvenirNextLTPro', 700);
         color: $alabaster;
-        margin: 0 0 64px;
+        margin: 0 0 50px;
         @include tablet {
             @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
+            width: 80%;
+            margin-bottom: 50px;
         }
         @include desktop {
-            width: 50%;
+            width: 94%;
         }
     }
-    &__audio{
-        width: 100%;
-        height: 70px;
+    iframe {
+        width: 288px;
+        height: 100px;
+        padding-bottom: 16px;
+        @include tablet {
+            width: 430px;
+            height: 140px;
+            padding-bottom: 48px;
+        }
+        @include desktop {
+            width: 480px;
+            padding: 0;
+        }
     }
 }
 
@@ -99,20 +131,21 @@ body {
     &--inner {
         width: 90%;
         margin: 0 auto 40px;
-
         @include tablet {
             width: 94%;
+            margin-top: 48px;
         }
         @include desktop {
             width: 85%;
             display: flex;
             justify-content: space-between;
-            margin-top: 48px;
+            margin-top: 20px;
+            
         }    
         h2 {
             margin: 32px 0 16px;
             @include tablet {
-                @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+                @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);                
             }
         }
     }
@@ -167,10 +200,8 @@ body {
         color: $black;
         margin-top: 13px;
         @include tablet {
-            width: 25%;
-        }
-        @include desktop {
-            width: 35%
+            @include font (15px, 18px, 'AvenirNextLTPro', 600);
+            width: 32%;
         }
     }
     &__venue,
@@ -178,7 +209,8 @@ body {
         @include font (13px, 18px, 'AvenirNextLTPro', 400);
         margin-top: 13px;
         @include tablet {
-            width: 25%;
+            @include font (14px, 18px, 'AvenirNextLTPro', 400);
+            width: 24%;
         }
         @include desktop {
             width: 20%;
@@ -191,6 +223,10 @@ body {
         @include tablet {
             width: 22%;
             margin: 18px 0;
+        }
+        @include desktop {
+            width: 20%;
+            margin: 14px 0;
         }
     }
 }
