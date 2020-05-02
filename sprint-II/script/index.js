@@ -41,8 +41,8 @@ commentSection = [
 ];
 
 
-// btnHandler function
-function btnHandler () {
+// displayComment function
+function displayComment () {
     
     for (var i = 0; i < commentSection.length; i++) {        
 
@@ -58,17 +58,20 @@ function btnHandler () {
         commentBoxRight.classList.add('join-container--right');
         commentBox.appendChild(commentBoxRight);
 
+        let commentBoxInfo = document.createElement('div');
+        commentBoxInfo.classList.add('join-container__info');
+        commentBoxRight.appendChild(commentBoxInfo);
 
         // Name
         let newName = document.createElement('p');
         newName.classList.add('join-container__name');
-        commentBoxRight.appendChild(newName);
+        commentBoxInfo.appendChild(newName);
         
 
         // Time
         let newTime = document.createElement('p');
         newTime.classList.add('join-container__time');            
-        commentBoxRight.appendChild(newTime);          
+        commentBoxInfo.appendChild(newTime);          
 
 
         // Comment
@@ -89,11 +92,11 @@ function btnHandler () {
     }
     empty();
 }
-btnHandler();
+displayComment();
 
 
 
-// btnHandler eventlistener
+// displayComment eventlistener
 formSubmit.addEventListener('submit', event => {
     event.preventDefault();
 
@@ -106,10 +109,10 @@ formSubmit.addEventListener('submit', event => {
     })
 
     if (!nameInput.value) {
-        alert ('Please type your name!');        
+        alert ('Please type your name');        
     } else {
 
-        btnHandler ();
+        displayComment ();
     
     }
     formSubmit.reset();

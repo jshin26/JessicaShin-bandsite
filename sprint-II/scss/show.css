@@ -398,6 +398,7 @@ body {
   background-color: #323232;
   border-radius: 5px;
   border-style: none;
+  cursor: pointer;
 }
 
 .hero {
