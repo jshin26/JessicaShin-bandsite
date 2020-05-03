@@ -9,7 +9,7 @@ let innerContainer = document.querySelector('.join-container--inner');
 
 
 // TimeStamp
-function updateTime(current, previous) {
+function updateTime() {
     const date = new Date();
 
     const year = date.getFullYear();
@@ -106,9 +106,9 @@ formSubmit.addEventListener('submit', event => {
     })
 
     if (!nameInput.value) {
-
+        
         alert ('Please type your name');
-               
+        
     } else {
 
         displayComment ();

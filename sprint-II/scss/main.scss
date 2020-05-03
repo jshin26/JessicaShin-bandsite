@@ -316,12 +316,11 @@ body {
         &__comment {
             @include font (12px, 20px, 'AvenirNextLTPro', 600); 
             border: 1px solid $mercury;
-            border-radius: 3px;
+            border-radius: 4px;
             padding: 12px;
             margin-bottom: 16px;
             &:focus {
-                border: 2px solid $black;
-                border-radius: 3px;
+                border: 2px solid $black;                
                 outline: none;             
             }
             &::placeholder {

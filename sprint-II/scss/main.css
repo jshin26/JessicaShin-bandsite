@@ -908,14 +908,13 @@ body {
   font-family: "AvenirNextLTPro";
   font-weight: 600;
   border: 1px solid #e1e1e1;
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 12px;
   margin-bottom: 16px;
 }
 
 .join-input__name:focus, .join-input__comment:focus {
   border: 2px solid #323232;
-  border-radius: 3px;
   outline: none;
 }
 
