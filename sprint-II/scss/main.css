@@ -409,6 +409,7 @@ body {
 .hero {
   width: 100%;
   height: 30vh;
+  max-height: 11.438rem;
   background-image: url("../assets/Images/noise.jpg");
   background-position: center;
   background-size: cover;
@@ -422,6 +423,7 @@ body {
 @media (min-width: 768px) {
   .hero {
     height: 60vh;
+    max-height: none;
   }
 }
 
@@ -525,7 +527,7 @@ body {
     line-height: 2.75rem;
     font-family: "AvenirNextLTPro";
     font-weight: 700;
-    margin-top: 55px;
+    margin-top: 3.438rem;
   }
 }
 
@@ -775,7 +777,7 @@ body {
 }
 
 .join {
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
 }
 
 .join--inner {
@@ -801,7 +803,7 @@ body {
   line-height: 2rem;
   font-family: "AvenirNextLTPro";
   font-weight: 700;
-  margin: 32px 0 40px;
+  margin: 2rem 0 2.5rem;
 }
 
 @media (min-width: 768px) {
@@ -817,7 +819,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-bottom: 32px;
+  padding-bottom: 2rem;
   border-bottom: 1px solid #e1e1e1;
 }
 
@@ -836,7 +838,7 @@ body {
 
 .join-input--left {
   width: 22%;
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 @media (min-width: 768px) {
@@ -858,8 +860,8 @@ body {
 }
 
 .join-input--left img {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -869,8 +871,8 @@ body {
 
 @media (min-width: 1200px) {
   .join-input--left img {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
   }
 }
 
@@ -885,7 +887,7 @@ body {
           flex-direction: column;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  padding-left: 16px;
+  padding-left: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -895,22 +897,22 @@ body {
 }
 
 .join-input__text {
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 600;
   color: #afafaf;
 }
 
 .join-input__name, .join-input__comment {
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 600;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
-  padding: 12px;
-  margin-bottom: 16px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .join-input__name:focus, .join-input__comment:focus {
@@ -919,32 +921,32 @@ body {
 }
 
 .join-input__name::-webkit-input-placeholder, .join-input__comment::-webkit-input-placeholder {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 400;
   color: #323232;
 }
 
 .join-input__name:-ms-input-placeholder, .join-input__comment:-ms-input-placeholder {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 400;
   color: #323232;
 }
 
 .join-input__name::-ms-input-placeholder, .join-input__comment::-ms-input-placeholder {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 400;
   color: #323232;
 }
 
 .join-input__name::placeholder, .join-input__comment::placeholder {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 400;
   color: #323232;
@@ -1004,10 +1006,10 @@ body {
 
 .join-container--left {
   background-color: #e1e1e1;
-  width: 50px;
-  height: 40px;
+  width: 3.125rem;
+  height: 2.5rem;
   border-radius: 50%;
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
 .join-container--right {
@@ -1019,7 +1021,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-left: 16px;
+  padding-left: 1rem;
 }
 
 .join-container__info {
@@ -1040,11 +1042,11 @@ body {
 }
 
 .join-container__name {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 600;
-  margin-top: 25px;
+  margin-top: 1.563rem;
 }
 
 @media (min-width: 768px) {
@@ -1054,25 +1056,25 @@ body {
 }
 
 .join-container__time {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 400;
   color: #afafaf;
-  margin: 25px 0 14px;
+  margin: 1.563rem 0 0.875rem;
 }
 
 @media (min-width: 768px) {
   .join-container__time {
-    padding-left: 10px;
+    padding-left: 0.625rem;
   }
 }
 
 .join-container__comment {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-family: "AvenirNextLTPro";
   font-weight: 400;
-  padding: 0 0 24px;
+  padding: 0 0 1.5rem;
 }
 /*# sourceMappingURL=main.css.map */

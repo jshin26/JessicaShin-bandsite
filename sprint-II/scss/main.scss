@@ -37,6 +37,7 @@ body {
 .hero {
     width: 100%;
     height: 30vh;
+    max-height: 11.438rem;
     background-image: url('../assets/Images/noise.jpg');
     background-position: center;
     background-size: cover;
@@ -45,6 +46,7 @@ body {
     position: relative;
     @include tablet {
         height: 60vh;
+        max-height: none;
     }
     @include desktop {
         height: 70vh;
@@ -104,7 +106,7 @@ body {
         margin: 2rem 0 1.5rem;
         @include tablet {
             @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
-            margin-top: 55px;
+            margin-top: 3.438rem;
         }
         @include desktop {
             @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
@@ -243,7 +245,7 @@ body {
 // Join the Conversation
 
 .join {
-    padding-bottom: 40px;
+    padding-bottom: 2.5rem;
     &--inner {
         width: 90%;
         margin: 0 auto;
@@ -257,7 +259,7 @@ body {
     }    
     h2 {
         @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
-        margin:32px 0 40px;
+        margin:2rem 0 2.5rem;
         @include tablet {
             @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
         }
@@ -266,7 +268,7 @@ body {
     //INPUT PART
     &-input {
         display: flex;
-        padding-bottom: 32px;
+        padding-bottom: 2rem;
         border-bottom: 1px solid $mercury;
         @include tablet {
             width: 75%;
@@ -277,7 +279,7 @@ body {
         }
         &--left {
             width: 22%;
-            margin-top: 30px;       
+            margin-top: 1.875rem;       
             @include tablet {
                 width: 19%;
                 display: flex;
@@ -287,14 +289,14 @@ body {
                 width: 14%;
             }
             img {
-                width: 50px;;
-                height: 50px;
+                width: 3.125rem;
+                height: 3.125rem;
                 border-radius: 50%;
                 object-fit: cover;
                 object-position: 15% 50%;
                 @include desktop {
-                    width: 48px;
-                    height: 48px;
+                    width: 3rem;
+                    height: 3rem;
                 }
             }            
         }
@@ -303,28 +305,28 @@ body {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
-            padding-left: 16px;
+            padding-left: 1rem;
             @include tablet {
                 padding-left: 5px;
             }
         }
         &__text {
-            @include font (12px, 20px, 'AvenirNextLTPro', 600);
+            @include font (0.75rem, 1.25rem, 'AvenirNextLTPro', 600);
             color: $silver;
         }
         &__name,
         &__comment {
-            @include font (12px, 20px, 'AvenirNextLTPro', 600); 
+            @include font (0.75rem, 1.25rem, 'AvenirNextLTPro', 600); 
             border: 1px solid $mercury;
             border-radius: 4px;
-            padding: 12px;
-            margin-bottom: 16px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
             &:focus {
                 border: 2px solid $black;                
                 outline: none;             
             }
             &::placeholder {
-                @include font (14px, 20px, 'AvenirNextLTPro', 400);
+                @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
                 color: $black;
             }
             &--bgrgray {
@@ -366,16 +368,16 @@ body {
         }
         &--left {
             background-color: $mercury;
-            width: 50px;
-            height: 40px;
+            width: 3.125rem;
+            height: 2.5rem;
             border-radius:50%;
-            margin-top: 24px; 
+            margin-top: 1.5rem; 
         }
         &--right {
             width: 100%;
             display: flex;
             flex-direction: column;            
-            padding-left: 16px;
+            padding-left: 1rem;
         }
         &__info {
             display: flex;
@@ -385,23 +387,23 @@ body {
             }
         }
         &__name{
-            @include font (14px, 20px, 'AvenirNextLTPro', 600);
-            margin-top: 25px;
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 600);
+            margin-top: 1.563rem;
             @include tablet {
                 margin-bottom: 0;
             }
         }
         &__time {
-            @include font (14px, 20px, 'AvenirNextLTPro', 400);
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
             color: $silver;
-            margin: 25px 0 14px;
+            margin: 1.563rem 0 0.875rem;
             @include tablet {
-                padding-left: 10px;
+                padding-left: 0.625rem;
             }
         }
         &__comment {
-            @include font (14px, 20px, 'AvenirNextLTPro', 400);
-            padding: 0 0 24px;
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
+            padding: 0 0 1.5rem;
         }
     }
       
