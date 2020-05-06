@@ -1,4 +1,11 @@
 
+// API REQUST & RESPONSE
+
+const apiURL = 'https://project-1-api.herokuapp.com'
+
+const prom = axios.get(apiURL + '?api_key=6e9b5bbb-b8c9-4903-aa19-aa79db9e2caf')
+
+
 // querySelectors
 
 let nameInput = document.querySelector('.join-input__name');

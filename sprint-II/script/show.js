@@ -7,7 +7,7 @@ let showContainer = document.querySelector('.show__container')
 //Array for Ticket Lists
 
 showSection = [
-    {   
+    {
         'date' : {'date1' : 'DATES', 'date2' : ''},
         'venue' : {'venue1' : 'VENUE', 'venue2': ''},
         'location' : {'location1': 'LOCATION', 'location2': ''}
