@@ -1,0 +1,410 @@
+
+
+// IMPORTS
+
+@import './partials/fonts';
+@import './partials/mixins';
+@import './partials/variables';
+
+@import './partials/header';
+@import './partials/footer';
+
+
+// COMMON
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    font-family: 'AvenirNextLTPro', sans-serif;
+    font-weight: 400;
+}
+.btn {
+    @include font (13px, 20px, 'AvenirNextLTPro', 600); 
+    color: $white;
+    background-color: $black;
+    padding: 14px 0;
+    border-radius: 4px;
+    border-style: none;
+    cursor: pointer;
+    &:hover {
+        background-color: #000;
+    }
+}
+
+
+// HERO
+
+.hero {
+    width: 100%;
+    height: 30vh;
+    max-height: 11.438rem;
+    background-image: url('../assets/Images/noise.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+    @include tablet {
+        height: 60vh;
+        max-height: none;
+    }
+    @include desktop {
+        height: 70vh;
+    }
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        opacity: .5;
+        position: absolute;
+        top: 0;        
+    } 
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+        h1 {
+            @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+            width: 73%;
+            color: $alabaster;
+            @include tablet {
+                @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
+            }
+            @include desktop {
+                width: 50%;
+            }
+        }
+    }
+}
+
+// ABOUT the Musicians
+
+.about {
+    width: 100%;
+    margin-bottom:2.5rem;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+    }
+    &__header {
+        @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        margin: 2rem 0 1.5rem;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin-top: 3.438rem;
+        }
+        @include desktop {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin: 3rem 0;
+        }
+    }
+    &__frame {
+        @include desktop {
+            width: 88%;
+            margin: 0 auto;
+        }
+    }
+    &__image {
+        width: 100%;
+        @include tablet {
+            height: 42vh;
+            object-fit: cover;
+        }
+        @include desktop {
+            height: 51vh;
+        }
+    }
+    &__quote {
+        @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1.5rem, 2.25rem, 'AvenirNextLTPro', 700);
+        }
+        @include desktop {
+            width: 90%;
+            margin: 3rem 0 2.5rem;
+        }
+    }
+    &__quote-name {
+        margin: 2rem 0 2.5rem;
+        @include font (0.875rem, 1.125rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1rem, 1.5rem, 'AvenirNextLTPro', 600);
+        }
+        @include desktop {
+            margin-bottom: 2rem;
+        }
+    }
+    &__info-title {
+        margin: 0;
+        @include font (1rem, 1.625rem, 'AvenirNextLTPro', 600);
+        @include tablet {
+            @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        }
+        @include desktop {
+            margin-bottom: 2rem;
+        }
+    }
+    &__info {
+        margin-top: 1.5rem;
+        @include font (0.813rem, 1.125rem, 'AvenirNextLTPro', 300);
+        @include tablet {
+            @include font (0.9rem, 1.5rem, 'AvenirNextLTPro', 300);
+            column-count: 2;
+            column-width: 50%;
+            column-gap: 1.5rem;
+        }
+        @include desktop {
+            column-gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        &--break {
+            display: block;
+            margin: 1.5rem 0;
+            @include tablet {
+                margin: 0;
+            }
+        }
+    }
+}
+
+// Gallery
+
+.gallery {
+    background-color: $alabaster;
+    padding: 2rem 0;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+    }
+    &__title {
+        @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        margin: 0 0 1.5rem;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+            margin: 0.813rem, 0 2.813rem,
+        }
+        @include desktop {
+            margin-bottom: 4rem;
+        }
+    }
+    &__image-group {
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        @include desktop {
+            padding-bottom: 1.5rem;
+        }
+    }
+    &__image {
+        display: flex;
+        width: 100%;
+        margin: 0 0 1rem;
+        @include tablet {
+            width: 31%;
+            margin: 0 1.5rem 1.5rem 0;
+        }
+        @include desktop {
+            width: 32%;
+            margin-right: 0;
+            filter: grayscale(100%);
+            &:hover {
+                filter: none;
+            }
+        }
+        &:nth-child(3n) {
+            @include tablet {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+// Join the Conversation
+
+.join {
+    padding-bottom: 2.5rem;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }
+    }    
+    h2 {
+        @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+        margin:2rem 0 2.5rem;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);
+        }
+    }
+
+    //INPUT PART
+    &-input {
+        display: flex;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $mercury;
+        @include tablet {
+            width: 75%;
+            margin: 0 auto;
+        }
+        @include desktop {
+            width: 50%;
+        }
+        &--left {
+            width: 22%;
+            margin-top: 1.875rem;       
+            @include tablet {
+                width: 19%;
+                display: flex;
+                justify-content: center;
+            }
+            @include desktop {
+                width: 14%;
+            }
+            img {
+                width: 3.125rem;
+                height: 3.125rem;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: 15% 50%;
+                @include desktop {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }            
+        }
+        &--right {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            padding-left: 1rem;
+            @include tablet {
+                padding-left: 5px;
+            }
+        }
+        &__text {
+            @include font (0.75rem, 1.25rem, 'AvenirNextLTPro', 600);
+            color: $silver;
+        }
+        &__name,
+        &__comment {
+            @include font (0.75rem, 1.25rem, 'AvenirNextLTPro', 600); 
+            border: 1px solid $mercury;
+            border-radius: 4px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            &:focus {
+                border: 2px solid $black;                
+                outline: none;             
+            }
+            &::placeholder {
+                @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
+                color: $black;
+            }
+            &--bgrgray {
+                background-color: $alabaster;
+                resize: none;
+            }            
+        }
+        &__submit {
+            @include tablet {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+            }
+            .btn {
+                width: 100%;
+                @include tablet {
+                    width: 35%;
+                }
+            }
+        }          
+    }
+
+    // COMMENT PART
+    &-container {
+        width: 90%;
+        margin: 0 auto;    
+        &--inner {
+            @include tablet {
+                width: 75%;
+                margin: 0 auto;
+            }
+            @include desktop {
+                width: 55%;
+            }
+        }
+        &__box {
+            display: flex;
+            border-bottom: 1px solid $mercury;
+        }
+        &--left {
+            background-color: $mercury;
+            width: 3.125rem;
+            height: 2.5rem;
+            border-radius:50%;
+            margin-top: 1.5rem; 
+        }
+        &--right {
+            width: 100%;
+            display: flex;
+            flex-direction: column;            
+            padding-left: 1rem;
+        }
+        &__info {
+            display: flex;
+            justify-content: space-between;
+            @include tablet {
+                justify-content: flex-start;
+            }
+        }
+        &__name{
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 600);
+            margin-top: 1.563rem;
+            @include tablet {
+                margin-bottom: 0;
+            }
+        }
+        &__time {
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
+            color: $silver;
+            margin: 1.563rem 0 0.875rem;
+            @include tablet {
+                padding-left: 0.625rem;
+            }
+        }
+        &__comment {
+            @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
+            padding: 0 0 1.5rem;
+        }
+    }
+      
+}

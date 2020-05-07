@@ -1,0 +1,237 @@
+
+// IMPORTS
+
+@import './partials/fonts';
+@import './partials/mixins';
+@import './partials/variables';
+
+@import './partials/header';
+@import './partials/footer';
+
+
+// COMMON
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    font-family: 'AvenirNextLTPro', sans-serif;
+    font-weight: 400;
+}
+.btn {
+    @include font (13px, 20px, 'AvenirNextLTPro', 600); 
+    color: $white;
+    background-color: $black;
+    border-radius: 4px;
+    border-style: none;
+    cursor: pointer;
+    &:hover {
+        background-color: #000;
+    }
+}
+
+
+// HERO
+
+.hero {
+    width: 100%;
+    height: 65vh;
+    max-height: 29.5rem;
+    background-image: url('../assets/Images/mimi.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+    padding-top: 3rem;
+    box-sizing: border-box;
+    @include tablet {
+        height: 75vh;
+        max-height: none;
+        padding-top: 5.25rem;
+    }
+    @include desktop {
+        height: 70vh;
+        padding: 0;
+    }
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        opacity: .5;
+        position: absolute;
+        top: 0;        
+    }   
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;     
+        @include tablet {
+            width: 94%;
+        }
+        @include desktop {
+            width: 85%;
+        }               
+    }
+    &__container{
+        margin: 0;
+        z-index: 1;
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__text {
+        @include desktop {
+            width: 70%;
+        }
+    }
+    &__description {
+        @include font (1rem, 1.375rem, 'AvenirNextLTPro', 600);
+        color: $alabaster;
+        margin: 0 0 0.625rem;
+        @include tablet {
+            @include font (1.5rem, 2rem, 'AvenirNextLTPro', 700);
+            margin-bottom: 1.25rem;
+        }
+    }
+    &__title {
+        @include font (2.25rem, 3.125rem, 'AvenirNextLTPro', 700);
+        color: $alabaster;
+        margin: 0 0 3.125rem;
+        @include tablet {
+            @include font (3.75rem, 5rem, 'AvenirNextLTPro', 700);
+            width: 80%;
+            margin-bottom: 3.125rem;
+        }
+        @include desktop {
+            width: 94%;
+        }
+    }
+    iframe {
+        width: 18rem;
+        height: 6.25rem;
+        padding-bottom: 1rem;
+        @include tablet {
+            width: 26.875rem;
+            height: 8.75rem;
+            padding-bottom: 3rem;
+        }
+        @include desktop {
+            width: 30rem;
+            padding: 0;
+        }
+    }
+}
+
+
+// SHOWS
+
+.show {
+    &--inner {
+        width: 90%;
+        margin: 0 auto 2.5rem;
+        @include tablet {
+            width: 94%;
+            margin-top: 3rem;
+        }
+        @include desktop {
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.25rem;
+            
+        }    
+        h2 {
+            margin: 2rem 0 1rem;
+            @include tablet {
+                @include font (2.25rem, 2.75rem, 'AvenirNextLTPro', 700);                
+            }
+        }
+    }
+    &__container {
+        @include desktop {
+            width: 75%;
+        }
+    }
+    &__table {
+        &:nth-child(1) .show__body {
+            display: none;
+        }
+        @include tablet {
+            &:nth-child(1) .show__body {
+                display: flex;
+            }
+            &:not(:nth-child(1)) .show__header {
+                display: none;
+            }
+            &:nth-child(1) {
+                .show__btn {
+                    visibility: hidden;
+                    margin: 0;
+                }
+                .show__body {
+                    border-bottom: none;
+                }
+            }
+        }
+        @include desktop {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__body {
+        margin: 1rem 0;
+        border-bottom: 1px solid $mercury;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+    }
+    &__header {
+        @include font (0.813rem, 1rem, 'AvenirNextLTPro', 600);
+        color: silver;
+        margin: 1.375rem 0 0;        
+    }
+    &__date {
+        @include font (0.813rem, 1.125rem, 'AvenirNextLTPro', 600);
+        color: $black;
+        margin-top: 0.813rem;
+        @include tablet {
+            @include font (0.938rem, 1.125rem, 'AvenirNextLTPro', 600);
+            width: 32%;
+        }
+        @include desktop {
+            width: 28%;
+        }
+    }
+    &__venue,
+    &__location {
+        @include font (0.813rem, 1.125rem, 'AvenirNextLTPro', 400);
+        margin-top: 0.813rem;
+        @include tablet {
+            @include font (14px, 1.125rem, 'AvenirNextLTPro', 400);
+            width: 24%;
+        }
+        @include desktop {
+            width: 22%;
+        }
+    }
+    &__btn {
+        width: 100%;
+        padding: 0.813rem 0;
+        margin: 2rem 0 1rem;
+        @include tablet {
+            width: 22%;
+            margin: 1.125rem 0;
+        }
+        @include desktop {
+            width: 20%;
+            margin: 0.875rem 0;
+        }
+    }
+}
