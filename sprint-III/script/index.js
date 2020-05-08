@@ -1,34 +1,22 @@
 
-// API REQUST & RESPONSE
-const apiKey = 'ba3cfeed-1363-40a2-a6f5-d1bb19b29c30';
-const url = 'https://project-1-api.herokuapp.com';
-
-axios.get(url + '/comments' + '?api_key=' + apiKey)
-.then(commentData => {
-    console.log(commentData);
-})
-.catch(error => {
-    console.log(error);
-})
-
 // Array for default comments
-commentSection = [
-    {
-        'name': 'Theodore Duncan',
-        'date': '11/15/2018',
-        'comment': 'How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He\'s definitely my favorite ever!'
-    },
-    {
-        'name': 'Gary Wong',
-        'date': '12/12/2018',
-        'comment': 'Every time I see him shred I feel so motivated to get off my couch and hop on my board. He\'s so talented! I wish I can ride like him one dayt so I can really enjoy myself!'
-    },
-    {
-        'name': 'Micheal Lyons',
-        'date': '12/18/2018',
-        'comment': 'They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.'
-    }
-];
+// commentSection = [
+//     {
+//         'name': 'Theodore Duncan',
+//         'date': '11/15/2018',
+//         'comment': 'How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He\'s definitely my favorite ever!'
+//     },
+//     {
+//         'name': 'Gary Wong',
+//         'date': '12/12/2018',
+//         'comment': 'Every time I see him shred I feel so motivated to get off my couch and hop on my board. He\'s so talented! I wish I can ride like him one dayt so I can really enjoy myself!'
+//     },
+//     {
+//         'name': 'Micheal Lyons',
+//         'date': '12/18/2018',
+//         'comment': 'They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.'
+//     }
+// ];
 
 
 // querySelectors
@@ -52,6 +40,7 @@ function updateTime() {
     const time = (month+1) + '/' + day + '/' + year;
     return time;
 };
+
 
 // displayComment function
 function displayComment (comment) {
@@ -82,6 +71,12 @@ function displayComment (comment) {
     newTime.classList.add('join-container__time');            
     commentBoxInfo.appendChild(newTime);          
 
+//    // Delete Button
+//    let deleteBtn = document.createElement('button');
+//    deleteBtn.classList.add('join-container__delete', 'btn');
+//    commentBoxInfo.appendChild(deleteBtn);
+//    deleteBtn.innerText = 'DELETE';
+
     // Comment
     let newComment = document.createElement('div');
     newComment.classList.add('join-container__comment');
@@ -95,42 +90,77 @@ function displayComment (comment) {
 
 }
 
-function gettingComments () {
 
-    for (let i = 0; i < commentSection.length; i++) { 
-        displayComment(commentSection[i]);
-    }
+// FUNCTION for API REQUST & RESPONSE
 
+const apiKey = 'ba3cfeed-1363-40a2-a6f5-d1bb19b29c3ㄷ';
+const apiURL = 'https://project-1-api.herokuapp.com';
+
+const url = apiURL + '/comments?api_key=' + apiKey;
+
+getfromAPI = () => {
+    
+    return axios.get(url)
+    .then (commentData =>{
+        return commentData.data
+    })
+    .catch(error => {
+        console.log(error)
+    })
 }
+
+
+getfromAPI().then(gettingComments = (result) => { 
+    for (let i = 0; i < result.length; i++) { 
+        displayComment(result[i]);
+    }
+})
+
 
 // displayComment eventlistener
 formSubmit.addEventListener('submit', event => {
     event.preventDefault();
 
-    // push array
-
-    if (!nameInput.value) {
+    if (!event.target.name.value) {
         
         alert ('Please type your name');
         
     } else {
 
-        newComment = {
+        
+
+        return axios.post(url, {
             'name' : event.target.name.value,
-            'date' : updateTime(),
+            // 'date' : updateTime(),
             'comment' : event.target.comment.value
-        }
-        commentSection.push(newComment);
+        })
 
-        innerContainer.innerHTML = '';
+        .then(() => {
+            // console.log(response.data)
 
-        gettingComments ();
-    
+            fetch(url)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => gettingComments(data))
+
+            innerContainer.innerHTML = '';
+            formSubmit.reset();
+        });
+
     }
-    formSubmit.reset();
+    
 });
 
-gettingComments();
+
+// deleteBtn.addEventListener('click', event => {
+//     event.preventDefault();
+
+//     return axios.delete(url)
+//     .then (() => {
+//         commentBox.innerText = ''
+//     })
+// })
 
 
 // Change label for NAME INPUT @MEDIAQUERY
