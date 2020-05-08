@@ -47,42 +47,40 @@ function displayComment (comment) {
 
     // Create Elements
     let commentBox = document.createElement('div'); 
-    commentBox.classList.add('join-container__box');
-
     let commentBoxLeft = document.createElement('div');
-    commentBoxLeft.classList.add('join-container--left');
-    commentBox.appendChild(commentBoxLeft);
-
     let commentBoxRight = document.createElement('div');
-    commentBoxRight.classList.add('join-container--right');
-    commentBox.appendChild(commentBoxRight);
-
     let commentBoxInfo = document.createElement('div');
+   
+    let newName = document.createElement('p');          //NAME    
+    let newTime = document.createElement('p');          //TIME    
+    let newComment = document.createElement('div');     //COMMENT
+
+    //Adding class names
+    commentBox.classList.add('join-container__box');
+    commentBoxLeft.classList.add('join-container--left');
+    commentBoxRight.classList.add('join-container--right');
     commentBoxInfo.classList.add('join-container__info');
-    commentBoxRight.appendChild(commentBoxInfo);
-
-    // Name
-    let newName = document.createElement('p');
     newName.classList.add('join-container__name');
-    commentBoxInfo.appendChild(newName);
-    
-    // Time
-    let newTime = document.createElement('p');
-    newTime.classList.add('join-container__time');            
-    commentBoxInfo.appendChild(newTime);          
-
-//    // Delete Button
-//    let deleteBtn = document.createElement('button');
-//    deleteBtn.classList.add('join-container__delete', 'btn');
-//    commentBoxInfo.appendChild(deleteBtn);
-//    deleteBtn.innerText = 'DELETE';
-
-    // Comment
-    let newComment = document.createElement('div');
+    newTime.classList.add('join-container__time');    
     newComment.classList.add('join-container__comment');
+
+
+    //appendChild in parent
+    commentBox.appendChild(commentBoxLeft); 
+    commentBox.appendChild(commentBoxRight);
+    commentBoxRight.appendChild(commentBoxInfo);
+    commentBoxInfo.appendChild(newName);         
+    commentBoxInfo.appendChild(newTime);   
     commentBoxRight.appendChild(newComment);
 
+    // let deleteBtn = document.createElement('button');
+    // deleteBtn.classList.add('join-container__delete', 'btn');
+    // deleteBtn.innerText = 'DELETE'
+    // commentBoxInfo.appendChild(deleteBtn)
+
+
     innerContainer.prepend(commentBox);
+
 
     newName.innerText = comment.name;
     newTime.innerText = comment.date;
@@ -93,28 +91,24 @@ function displayComment (comment) {
 
 // FUNCTION for API REQUST & RESPONSE
 
-const apiKey = 'ba3cfeed-1363-40a2-a6f5-d1bb19b29c3ㄷ';
+const apiKey = 'ba3cfeed-1363-40a2-a6f5-d1bb19b29c3f';
 const apiURL = 'https://project-1-api.herokuapp.com';
 
 const url = apiURL + '/comments?api_key=' + apiKey;
 
 getfromAPI = () => {
     
-    return axios.get(url)
+    axios.get(url)
     .then (commentData =>{
-        return commentData.data
+        commentData.data.forEach(result => {
+            displayComment(result)
+        })
     })
     .catch(error => {
         console.log(error)
     })
 }
-
-
-getfromAPI().then(gettingComments = (result) => { 
-    for (let i = 0; i < result.length; i++) { 
-        displayComment(result[i]);
-    }
-})
+getfromAPI();
 
 
 // displayComment eventlistener
@@ -127,8 +121,6 @@ formSubmit.addEventListener('submit', event => {
         
     } else {
 
-        
-
         return axios.post(url, {
             'name' : event.target.name.value,
             // 'date' : updateTime(),
@@ -136,15 +128,11 @@ formSubmit.addEventListener('submit', event => {
         })
 
         .then(() => {
-            // console.log(response.data)
-
-            fetch(url)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => gettingComments(data))
+            
+            getfromAPI()
 
             innerContainer.innerHTML = '';
+
             formSubmit.reset();
         });
 
@@ -153,14 +141,16 @@ formSubmit.addEventListener('submit', event => {
 });
 
 
-// deleteBtn.addEventListener('click', event => {
+// let clickDelete = document.querySelector('.join-container__delete');
+
+// clickDelete.addEventListener('click', event => {
 //     event.preventDefault();
 
 //     return axios.delete(url)
-//     .then (() => {
-//         commentBox.innerText = ''
+//     .then ((res) => {
+//         console.log(res)
 //     })
-// })
+// })  
 
 
 // Change label for NAME INPUT @MEDIAQUERY
