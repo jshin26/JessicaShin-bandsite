@@ -10,6 +10,7 @@ let innerContainer = document.querySelector('.join-container--inner');
 
 
 // TimeStamp (unix timestamp => date => 'human readable format')
+
 function updateTime(unix) {
     const getDate = new Date(unix);
 
@@ -42,7 +43,7 @@ function updateTime(unix) {
 
 // FUNCTION for API REQUST & RESPONSE
 
-const apiKey = 'ba3cfeed-1363-40a2-a6f5-d1bb19b29c3g';
+const apiKey = 'ba3cfeed-1363-40a2-a6f5-d1bb19b29c3h';
 const apiURL = 'https://project-1-api.herokuapp.com';
 
 const url = apiURL + '/comments?api_key=' + apiKey;
@@ -53,13 +54,13 @@ getfromAPI = () => {
     .then (commentData =>{
         console.log(commentData);
         commentData.data.forEach(result => {
-            displayComment(result)
+            displayComment(result);
         })
     })
     .catch(error => {
-        console.log(error)
+        console.log(error);
     })
-}
+};
 getfromAPI();
 
 

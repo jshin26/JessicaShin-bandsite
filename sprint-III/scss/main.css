@@ -836,25 +836,19 @@ body {
 }
 
 .join-input--left {
-  width: 22%;
+  width: 54px;
   margin-top: 1.875rem;
 }
 
 @media (min-width: 768px) {
   .join-input--left {
-    width: 19%;
+    width: 90px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-}
-
-@media (min-width: 1200px) {
-  .join-input--left {
-    width: 14%;
   }
 }
 

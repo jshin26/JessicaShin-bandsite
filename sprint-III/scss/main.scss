@@ -278,16 +278,16 @@ body {
             width: 50%;
         }
         &--left {
-            width: 22%;
+            width: 54px;
             margin-top: 1.875rem;       
             @include tablet {
-                width: 19%;
+                width: 90px;
                 display: flex;
                 justify-content: center;
             }
-            @include desktop {
-                width: 14%;
-            }
+            // @include desktop {
+            //     width: 90px;
+            // }
             img {
                 width: 3.125rem;
                 height: 3.125rem;
