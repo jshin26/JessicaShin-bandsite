@@ -605,40 +605,6 @@ body {
   }
 }
 
-.show__table:nth-child(1) .show__body {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .show__table:nth-child(1) .show__body {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .show__table:not(:nth-child(1)) .show__header {
-    display: none;
-  }
-  .show__table:nth-child(1) .show__btn {
-    visibility: hidden;
-    margin: 0;
-  }
-  .show__table:nth-child(1) .show__body {
-    border-bottom: none;
-  }
-}
-
-@media (min-width: 1200px) {
-  .show__table {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
 .show__body {
   margin: 1rem 0;
   border-bottom: 1px solid #e1e1e1;

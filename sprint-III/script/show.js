@@ -4,105 +4,69 @@ let innerShow = document.querySelector('.show--inner');
 let showContainer = document.querySelector('.show__container')
 
 
-//Array for Ticket Lists
+const apiKey = '6964010a-171a-4b5c-94b4-5a65f52aa3ea';
+const apiURL = 'https://project-1-api.herokuapp.com';
 
-showSection = [
-    {
-        'date' : {'date1' : 'DATES', 'date2' : ''},
-        'venue' : {'venue1' : 'VENUE', 'venue2': ''},
-        'location' : {'location1': 'LOCATION', 'location2': ''}
-    },
-    {
-        'date' : {'date1':'DATE', 'date2':'Mon Dec 17 2018'},
-        'venue' : {'venue1':'VENUE', 'venue2':'Ronald Land'},
-        'location' : {'location1':'LOCATION', 'location2':'San Francisco, CA'},
-        'ticket' : 'BUY TICKET'
-    },
-    {
-        'date' : {'date1':'DATE', 'date2':'Tue Jul 18 2019'},
-        'venue' : {'venue1':'VENUE', 'venue2':'Pier 3 East'},
-        'location' : {'location1':'LOCATION', 'location2':'San Francisco, CA'},
-        'ticket' : 'BUY TICKET'
-    },    
-    {
-        'date' : {'date1':'DATE', 'date2':'Fri Jul 22 2019'},
-        'venue' : {'venue1':'VENUE', 'venue2':'View Loungue'},
-        'location' : {'location1':'LOCATION', 'location2':'San Francisco, CA'},
-        'ticket' : 'BUY TICKET'
-    },
-    {
-        'date' : {'date1':'DATE', 'date2':'Sat Aug 12 2019'},
-        'venue' : {'venue1':'VENUE', 'venue2':'Hyatt Agency'},
-        'location' : {'location1':'LOCATION', 'location2':'San Francisco, CA'},
-        'ticket' : 'BUY TICKET'
-    },
-    {
-        'date' : {'date1':'DATE', 'date2':'Fri Sep 05 2019'},
-        'venue' : {'venue1':'VENUE', 'venue2':'Moscow Center'},
-        'location' : {'location1':'LOCATION', 'location2':'San Francisco, CA'},
-        'ticket' : 'BUY TICKET'
-    },
-    {
-        'date' : {'date1':'DATE', 'date2':'Wed Aug 11 2019'},
-        'venue' : {'venue1':'VENUE', 'venue2':'Pres Club'},
-        'location' : {'location1':'LOCATION', 'location2':'San Francisco, CA'},
-        'ticket' : 'BUY TICKET'
-    }
-];
+const url = apiURL + '/showdates?api_key=' + apiKey;
 
 
-for (var i = 0; i < showSection.length; i++) {
+getShowsfromAPI = () => {
+    
+    return axios.get(url)
+    .then (showData =>{
+        console.log(showData);
+        showData.data.forEach(result => {
+            getShows(result)
+        })
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
+getShowsfromAPI();
+
+
+
+function getShows (showInfo) {
 
     let showTable = document.createElement('div'); //container <- table
-    showTable.classList.add('show__table');
-    showContainer.appendChild(showTable);
-
     let showBody = document.createElement('div'); // table <- body
-    showBody.classList.add('show__body');
-    showTable.appendChild(showBody);
-
-
-    // Date
-    let showDateH = document.createElement('div');
-    showDateH.classList.add('show__header');
-    showBody.appendChild(showDateH);
-
+    let showDateHeader = document.createElement('div');
     let showDate = document.createElement('div');
-    showDate.classList.add('show__date');
-    showBody.appendChild(showDate);
-
-
-    // Venue
-    let showVenueH = document.createElement('div');
-    showVenueH.classList.add('show__header');
-    showBody.appendChild(showVenueH);
-
+    let showVenueHeader = document.createElement('div');
     let showVenue = document.createElement('div');
-    showVenue.classList.add('show__venue');
-    showBody.appendChild(showVenue);
-
-
-    // Location
-    let showLocationH = document.createElement('div');
-    showLocationH.classList.add('show__header');
-    showBody.appendChild(showLocationH);
-
+    let showLocationHeader = document.createElement('div');
     let showLocation = document.createElement('div');
-    showLocation.classList.add('show__location');
-    showBody.appendChild(showLocation);
-
-
-    // "Buy Ticket" Button
     let showTicketBtn = document.createElement('button');
+
+
+    showTable.classList.add('show__table');
+    showBody.classList.add('show__body');
+    showDateHeader.classList.add('show__header');
+    showDate.classList.add('show__date');
+    showVenueHeader.classList.add('show__header');
+    showVenue.classList.add('show__venue');
+    showLocationHeader.classList.add('show__header');
+    showLocation.classList.add('show__location');
     showTicketBtn.classList.add('show__btn', 'btn');
+
+
+    showContainer.appendChild(showTable);
+    showTable.appendChild(showBody);
+    showBody.appendChild(showDateHeader);
+    showBody.appendChild(showDate);
+    showBody.appendChild(showVenueHeader);
+    showBody.appendChild(showVenue);
+    showBody.appendChild(showLocationHeader);
+    showBody.appendChild(showLocation);
     showBody.appendChild(showTicketBtn);
 
 
-    showDateH.innerText = showSection[i].date.date1;
-    showDate.innerText = showSection[i].date.date2;
-    showVenueH.innerText = showSection[i].venue.venue1;
-    showVenue.innerText = showSection[i].venue.venue2;
-    showLocationH.innerText = showSection[i].location.location1;
-    showLocation.innerText = showSection[i].location.location2;
-    showTicketBtn.innerText = showSection[i].ticket;
+    showDateHeader.innerText = 'DATE';
+    showDate.innerText = showInfo.date;
+    showVenueHeader.innerText = 'VENUE';
+    showVenue.innerText = showInfo.place;
+    showLocationHeader.innerText = 'LOCATION';
+    showLocation.innerText = showInfo.location;
+    showTicketBtn.innerText = 'BUY TICKETS';
 }

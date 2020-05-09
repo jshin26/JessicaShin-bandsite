@@ -1077,4 +1077,8 @@ body {
   font-weight: 400;
   padding: 0 0 1.5rem;
 }
+
+.join-container__like {
+  width: 50px;
+}
 /*# sourceMappingURL=main.css.map */

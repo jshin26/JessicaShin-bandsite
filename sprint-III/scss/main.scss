@@ -405,6 +405,12 @@ body {
             @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
             padding: 0 0 1.5rem;
         }
+        &__like {
+            width: 50px;
+        }
+        &__delete {
+
+        }
     }
       
 }

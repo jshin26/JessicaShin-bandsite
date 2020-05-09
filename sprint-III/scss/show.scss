@@ -157,30 +157,30 @@ body {
         }
     }
     &__table {
-        &:nth-child(1) .show__body {
-            display: none;
-        }
-        @include tablet {
-            &:nth-child(1) .show__body {
-                display: flex;
-            }
-            &:not(:nth-child(1)) .show__header {
-                display: none;
-            }
-            &:nth-child(1) {
-                .show__btn {
-                    visibility: hidden;
-                    margin: 0;
-                }
-                .show__body {
-                    border-bottom: none;
-                }
-            }
-        }
-        @include desktop {
-            display: flex;
-            flex-direction: column;
-        }
+        // &:nth-child(1) .show__body {
+        //     display: none;
+        // }
+        // @include tablet {
+        //     &:nth-child(1) .show__body {
+        //         display: flex;
+        //     }
+        //     &:not(:nth-child(1)) .show__header {
+        //         display: none;
+        //     }
+        //     &:nth-child(1) {
+        //         .show__btn {
+        //             visibility: hidden;
+        //             margin: 0;
+        //         }
+        //         .show__body {
+        //             border-bottom: none;
+        //         }
+        //     }
+        // }
+        // @include desktop {
+        //     display: flex;
+        //     flex-direction: column;
+        // }
     }
     &__body {
         margin: 1rem 0;
