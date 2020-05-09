@@ -29,6 +29,7 @@ getShowsfromAPI();
 
 function getShows (showInfo) {
 
+    //Create Elements
     let showTable = document.createElement('div'); //container <- table
     let showBody = document.createElement('div'); // table <- body
     let showDateHeader = document.createElement('div');
@@ -40,6 +41,7 @@ function getShows (showInfo) {
     let showTicketBtn = document.createElement('button');
 
 
+    //Adding class names
     showTable.classList.add('show__table');
     showBody.classList.add('show__body');
     showDateHeader.classList.add('show__header');
@@ -51,6 +53,7 @@ function getShows (showInfo) {
     showTicketBtn.classList.add('show__btn', 'btn');
 
 
+    //appendChild in parent
     showContainer.appendChild(showTable);
     showTable.appendChild(showBody);
     showBody.appendChild(showDateHeader);
@@ -69,4 +72,18 @@ function getShows (showInfo) {
     showLocationHeader.innerText = 'LOCATION';
     showLocation.innerText = showInfo.location;
     showTicketBtn.innerText = 'BUY TICKETS';
+
+
+    // Removing Headers in tablet/desktop screen
+    // const x = window.matchMedia("(min-width: 768px)");
+
+    // function changeLabel(x) {
+    
+    //     if (x.matches) {
+
+    //     }  
+    // }
+    // changeLabel(x);
+    // x.addListener(changeLabel);
 }
+

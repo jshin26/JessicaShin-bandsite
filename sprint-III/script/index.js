@@ -9,16 +9,34 @@ let formSubmit = document.querySelector('.join-input--right');
 let innerContainer = document.querySelector('.join-container--inner');
 
 
-// TimeStamp
+// TimeStamp (unix timestamp => date => 'human readable format')
 function updateTime(unix) {
     const getDate = new Date(unix);
 
-    const year = getDate.getUTCFullYear();
-    const month = getDate.getUTCMonth();
-    const day = getDate.getUTCDate();
+    const year = getDate.getFullYear();
+    const month = getDate.getMonth();
+    const day = getDate.getDate();
 
-    const time = (month+1) + '/' + day + '/' + year;
-    return time;
+
+    let calSeconds = Math.floor((new Date() - getDate) / 1000);
+    let timeAgo = Math.floor(calSeconds / 2592000);
+    if (timeAgo > 1) {
+    return (month+1) + '/' + day + '/' + year;
+    }
+    timeAgo = Math.floor(calSeconds / 86400);
+    if (timeAgo > 1) {
+      return timeAgo + " days ago";
+    }
+    timeAgo = Math.floor(calSeconds / 3600);
+    if (timeAgo > 1) {
+      return timeAgo + " hours ago";
+    }
+    timeAgo = Math.floor(calSeconds / 60);
+    if (timeAgo > 1) {
+      return timeAgo + " minutes ago";
+    }
+    return Math.floor(calSeconds) + " seconds ago";
+
 };
 
 
@@ -85,32 +103,41 @@ function displayComment (comment) {
 
 
     //Like Button
+    let btnParent = document.createElement('div');
+    btnParent.classList.add('join-container__btn-parent');
+    commentBoxRight.appendChild(btnParent)
+
     let likeBtn = document.createElement('button');
-    likeBtn.classList.add('join-container__like', 'btn');
-    likeBtn.innerText = `likes ${comment.likes}`;
-    commentBoxInfo.appendChild(likeBtn);
+    likeBtn.classList.add('join-container__btn', 'btn');
+    likeBtn.innerText = 0;
+    btnParent.appendChild(likeBtn);
 
     likeBtn.addEventListener('click', event => {
         event.preventDefault();
    
-        likeBtn.innerText++
-      
+        likeBtn.innerText ++
+        // axios.post(url).then(res => {res.data.likes++})
+        
+        /* I really wanted to use /id to increase the likes, but could not figure out.
+        My code will only increase the number, but will not be saved :( */
+
     })
 
-    
     //Delete Button
     let deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('join-container__delete', 'btn');
+    deleteBtn.classList.add('join-container__btn', 'btn');
     deleteBtn.innerText = 'DELETE'
-    commentBoxInfo.appendChild(deleteBtn);
+    btnParent.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', event => {
         event.preventDefault();
 
-        axios.delete(url)
-        .then ((res) => {
-            res.data
-        })
+        axios.delete(url, { data: event.target.data.id })
+        .then (res => {
+            res.data.id
+        }
+            
+        )
     })
 }
 
@@ -126,7 +153,6 @@ formSubmit.addEventListener('submit', event => {
     } else {
         return axios.post(url, {
             'name' : event.target.name.value,
-            'date' : updateTime(timestamp.value),
             'comment' : event.target.comment.value
         })
         .then(() => {

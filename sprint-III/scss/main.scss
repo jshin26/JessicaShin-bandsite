@@ -22,7 +22,7 @@ body {
     @include font (13px, 20px, 'AvenirNextLTPro', 600); 
     color: $white;
     background-color: $black;
-    padding: 14px 0;
+    
     border-radius: 4px;
     border-style: none;
     cursor: pointer;
@@ -334,7 +334,7 @@ body {
                 resize: none;
             }            
         }
-        &__submit {
+        &__submit {            
             @include tablet {
                 width: 100%;
                 display: flex;
@@ -342,6 +342,7 @@ body {
             }
             .btn {
                 width: 100%;
+                padding: 14px 0;
                 @include tablet {
                     width: 35%;
                 }
@@ -405,11 +406,15 @@ body {
             @include font (0.875rem, 1.25rem, 'AvenirNextLTPro', 400);
             padding: 0 0 1.5rem;
         }
-        &__like {
-            width: 50px;
+        &__btn-parent{
+            display: flex;
+            justify-content: flex-end;
+            padding-bottom: 16px;
         }
-        &__delete {
-
+        &__btn {
+            width: 60px;
+            height: 30px;
+            margin-left: 15px;
         }
     }
       

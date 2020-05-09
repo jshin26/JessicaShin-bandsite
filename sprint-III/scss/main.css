@@ -396,7 +396,6 @@ body {
   font-weight: 600;
   color: #fff;
   background-color: #323232;
-  padding: 14px 0;
   border-radius: 4px;
   border-style: none;
   cursor: pointer;
@@ -971,6 +970,7 @@ body {
 
 .join-input__submit .btn {
   width: 100%;
+  padding: 14px 0;
 }
 
 @media (min-width: 768px) {
@@ -1078,7 +1078,19 @@ body {
   padding: 0 0 1.5rem;
 }
 
-.join-container__like {
-  width: 50px;
+.join-container__btn-parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-bottom: 16px;
+}
+
+.join-container__btn {
+  width: 60px;
+  height: 30px;
+  margin-left: 15px;
 }
 /*# sourceMappingURL=main.css.map */
