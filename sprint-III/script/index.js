@@ -52,7 +52,7 @@ getfromAPI = () => {
     
     axios.get(url)
     .then (commentData =>{
-        console.log(commentData);
+        // console.log(commentData);
         commentData.data.forEach(result => {
             displayComment(result);
         })
@@ -132,14 +132,11 @@ function displayComment (comment) {
 
     deleteBtn.addEventListener('click', event => {
         event.preventDefault();
-
-        axios.delete(url, { data: event.target.data.id })
+        return axios.delete(url)
         .then (res => {
-            res.data.id
-        }
-            
-        )
-    })
+            console.log(res.data)
+        })
+    }) //couldn't figure out how to remove the data :(
 }
 
 
@@ -147,15 +144,12 @@ function displayComment (comment) {
 formSubmit.addEventListener('submit', event => {
     event.preventDefault();
 
-    if (!event.target.name.value) {
+    if (!event.target.name.value || !event.target.comment.value) {
         
         alert ('Please type your name');
         
     } else {
-        return axios.post(url, {
-            'name' : event.target.name.value,
-            'comment' : event.target.comment.value
-        })
+        return axios.post(url)
         .then(() => {
 
             getfromAPI();

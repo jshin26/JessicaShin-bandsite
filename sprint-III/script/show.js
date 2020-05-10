@@ -14,7 +14,7 @@ getShowsfromAPI = () => {
     
     return axios.get(url)
     .then (showData =>{
-        // console.log(showData);
+        console.log(showData);
         tabletHeader();
         showData.data.forEach(result => {
             getShows(result);
@@ -28,13 +28,13 @@ getShowsfromAPI();
 
 
 // function for creating element, class name, appendChild, innerText
-function createElem(elem, className, parent, text){
+function createElem (elem, className, parent, text) {
     let newElement = document.createElement(elem);
     newElement.classList.add(className);
     parent.appendChild(newElement);
     newElement.innerText = text
     return newElement;
-  }
+}
 
 
 //function for creating new rows
@@ -60,16 +60,13 @@ function getShows (showInfo) {
     createElem('p', 'show__header', showBody, 'VENUE');
     createElem('p', 'show__venue', showBody, showInfo.place);
     createElem('p', 'show__header', showBody, 'LOCATION');
-    createElem('p', 'show__venue', showBody, showInfo.place);
-
+    createElem('p', 'show__location', showBody, showInfo.place);
 
     showBody.appendChild(showTicketBtn);
 }
 
 
-/* function for the top header for tablet and desktop,
- created button with hidden visibility so that 
- they can take same portion of width as the table body */
+// Top header for tablet and desktop
 
 function tabletHeader () {
 
@@ -80,6 +77,9 @@ function tabletHeader () {
     createElem('p', 'show__top-venue', topHeader, 'VENUE');
     createElem('p', 'show__top-location', topHeader, 'LOCATION');
     createElem('button', 'show__top-btn', topHeader, 'BUY TICKETS');
+
+    //  created button with hidden visibility so that 
+    //  they can take same portion of width as the table body
 
     showContainer.prepend(topHeader);
 }
