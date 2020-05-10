@@ -149,7 +149,10 @@ formSubmit.addEventListener('submit', event => {
         alert ('Please type your name');
         
     } else {
-        return axios.post(url)
+        return axios.post(url, {
+            'name' : event.target.name.value,
+            'comment' : event.target.comment.value
+        })
         .then(() => {
 
             getfromAPI();
