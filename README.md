@@ -1,5 +1,5 @@
 A musician introductory/music festival ticket-selling web using HTML, CSS and JavaScript
-
+=
 
 Using the API, front-end code is connected to the back-end, and get live data from the server. The site is functional with comment(GET, POST) and shows data from the server.
 
